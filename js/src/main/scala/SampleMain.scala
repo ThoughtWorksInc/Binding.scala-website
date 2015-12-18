@@ -11,15 +11,15 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 object SampleMain {
 
-  case class Log(name: Var[String], email: Var[String])
+  case class Contact(name: Var[String], email: Var[String])
 
-  val data = Vars.empty[Log]
+  val data = Vars.empty[Contact]
 
   @dom def table = {
     <div>
       <button
         onclick={ event: Event =>
-          data.get += Log(Var("Yang Bo"), Var("yang.bo@rea-group.com"))
+          data.get += Contact(Var("Yang Bo"), Var("yang.bo@rea-group.com"))
         }
       >
         Add a contact
