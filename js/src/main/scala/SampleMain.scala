@@ -15,7 +15,8 @@ object SampleMain {
 
   val data = Vars.empty[Contact]
 
-  @dom def table = {
+  @dom
+  def table = {
     <div>
       <button
         onclick={ event: Event =>
@@ -24,32 +25,37 @@ object SampleMain {
       >
         Add a contact
       </button>
-      <button
-        onclick={ event: Event =>
-          data.get.last.name := "Modified Name"
-        }
-      >
-        Modify the last contact
-      </button>
     </div>
-    <table border="1">
+    <table border="1" cellPadding="5">
       <thead>
         <tr>
           <th>Name</th>
           <th>E-mail</th>
+          <th>Operation</th>
         </tr>
       </thead>
       <tbody>
-        {for (contact <- data) yield {
-        <tr>
-          <td>
-            {contact.name.each}
-          </td>
-          <td>
-            {contact.email.each}
-          </td>
-        </tr>
-      }}
+        {
+          for (contact <- data) yield {
+            <tr>
+              <td>
+                {contact.name.each}
+              </td>
+              <td>
+                {contact.email.each}
+              </td>
+              <td>
+                <button
+                  onclick={ event: Event =>
+                    contact.name := "Modified Name"
+                  }
+                >
+                  Modify the name
+                </button>
+              </td>
+            </tr>
+          }
+        }
       </tbody>
     </table>
   }
