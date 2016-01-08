@@ -1,5 +1,5 @@
-import au.com.realcommercial.binding.Binding.{Var, Vars}
-import au.com.realcommercial.binding.dom
+import com.thoughtworks.binding.Binding.{Var, Vars}
+import com.thoughtworks.binding.dom
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Event
 
