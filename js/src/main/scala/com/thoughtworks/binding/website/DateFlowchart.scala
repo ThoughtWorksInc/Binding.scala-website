@@ -17,79 +17,6 @@ object DateFlowchart extends Sample {
 
   override def content = CurrentSource.content
 
-  @dom private def noSex = <p>你今晚想滚床单是没戏了</p>
-
-  @dom private def sex = <p>你小子的幸福来了</p>
-
-  @dom private def soberEnough = {
-    val answer = Var[Option[Boolean]](None)
-    <section>
-      <p>她醉得不省人事了吗？</p>
-      <ul>
-        <li>
-          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？是" onclick={ event: Event => answer := Some(true) }/>
-          <label htmlFor="她醉得不省人事了吗？是">是</label>
-        </li>
-        <li>
-          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？否" onclick={ event: Event => answer := Some(false) }/>
-          <label htmlFor="她醉得不省人事了吗？否">否</label>
-        </li>
-      </ul>
-      {
-        answer.each match {
-          case None =>
-            <br/>
-          case Some(true) =>
-            sex.each
-          case Some(false) =>
-            noSex.each
-        }
-      }
-    </section>
-  }
-
-  @dom private def isDrunk(numberOfCupsOfDrinks: Int): Binding[Element] = {
-    val answer = Var[Option[Boolean]](None)
-    <section>
-      <p>她已经喝醉了？</p>
-      <ul>
-        <li>
-          <input type="radio" name={ s"她已经喝醉了？$numberOfCupsOfDrinks" } id={ s"她已经喝醉了？是$numberOfCupsOfDrinks" } onclick={ event: Event => answer := Some(true) }/>
-          <label htmlFor={ s"她已经喝醉了？是$numberOfCupsOfDrinks" }>是</label>
-        </li>
-        <li>
-          <input type="radio" name={ s"她已经喝醉了？$numberOfCupsOfDrinks" } id={ s"她已经喝醉了？否$numberOfCupsOfDrinks" } onclick={ event: Event => answer := Some(false) }/>
-          <label htmlFor={ s"她已经喝醉了？否$numberOfCupsOfDrinks" }>否</label>
-        </li>
-      </ul>
-      {
-        answer.each match {
-          case None =>
-            <br/>
-          case Some(true) =>
-            soberEnough.each
-          case Some(false) =>
-            buyDrinks(numberOfCupsOfDrinks + 1).each
-        }
-      }
-    </section>
-  }
-
-  @dom private def buyDrinks(numberOfCupsOfDrinks: Int): Binding[Element] = {
-    val checked = Var(false)
-    <section>
-      <input type="checkbox" id={ s"给她买点酒喝啦$numberOfCupsOfDrinks" } name="给她买点酒喝啦" onclick={ event: Event => checked := event.currentTarget.asInstanceOf[Input].checked }/>
-      <label htmlFor={ s"给她买点酒喝啦$numberOfCupsOfDrinks" }>给她买点酒喝啦</label>
-      {
-        if (checked.each) {
-          isDrunk(numberOfCupsOfDrinks).each
-        } else {
-          <br/>
-        }
-      }
-    </section>
-  }
-
   @dom override def render = {
     <section>
       <h1>约会后是否会啪啪啪的流程图</h1>
@@ -288,4 +215,78 @@ object DateFlowchart extends Sample {
       }
     </section>
   }
+
+  @dom private def buyDrinks(numberOfCupsOfDrinks: Int): Binding[Element] = {
+    val checked = Var(false)
+    <section>
+      <input type="checkbox" id={ s"给她买点酒喝啦$numberOfCupsOfDrinks" } name="给她买点酒喝啦" onclick={ event: Event => checked := event.currentTarget.asInstanceOf[Input].checked }/>
+      <label htmlFor={ s"给她买点酒喝啦$numberOfCupsOfDrinks" }>给她买点酒喝啦</label>
+      {
+        if (checked.each) {
+          isDrunk(numberOfCupsOfDrinks).each
+        } else {
+          <br/>
+        }
+      }
+    </section>
+  }
+
+  @dom private def isDrunk(numberOfCupsOfDrinks: Int): Binding[Element] = {
+    val answer = Var[Option[Boolean]](None)
+    <section>
+      <p>她已经喝醉了？</p>
+      <ul>
+        <li>
+          <input type="radio" name={ s"她已经喝醉了？$numberOfCupsOfDrinks" } id={ s"她已经喝醉了？是$numberOfCupsOfDrinks" } onclick={ event: Event => answer := Some(true) }/>
+          <label htmlFor={ s"她已经喝醉了？是$numberOfCupsOfDrinks" }>是</label>
+        </li>
+        <li>
+          <input type="radio" name={ s"她已经喝醉了？$numberOfCupsOfDrinks" } id={ s"她已经喝醉了？否$numberOfCupsOfDrinks" } onclick={ event: Event => answer := Some(false) }/>
+          <label htmlFor={ s"她已经喝醉了？否$numberOfCupsOfDrinks" }>否</label>
+        </li>
+      </ul>
+      {
+        answer.each match {
+          case None =>
+            <br/>
+          case Some(true) =>
+            soberEnough.each
+          case Some(false) =>
+            buyDrinks(numberOfCupsOfDrinks + 1).each
+        }
+      }
+    </section>
+  }
+
+  @dom private def soberEnough = {
+    val answer = Var[Option[Boolean]](None)
+    <section>
+      <p>她醉得不省人事了吗？</p>
+      <ul>
+        <li>
+          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？是" onclick={ event: Event => answer := Some(true) }/>
+          <label htmlFor="她醉得不省人事了吗？是">是</label>
+        </li>
+        <li>
+          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？否" onclick={ event: Event => answer := Some(false) }/>
+          <label htmlFor="她醉得不省人事了吗？否">否</label>
+        </li>
+      </ul>
+      {
+        answer.each match {
+          case None =>
+            <br/>
+          case Some(true) =>
+            sex.each
+          case Some(false) =>
+            noSex.each
+        }
+      }
+    </section>
+  }
+
+  @dom private def noSex = <p>你今晚想滚床单是没戏了</p>
+
+  @dom private def sex = <p>你小子的幸福来了</p>
+
 }
