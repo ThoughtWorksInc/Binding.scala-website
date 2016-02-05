@@ -43,6 +43,13 @@ SiteKeys.siteMappings ++= {
               vertical-align: top;
               border-collapse: collapse;
               border: thin solid gray;
+              white-space: nowrap;
+            }}
+            li {{
+              list-style-type: none;
+            }}
+            pre {{
+              overflow: scroll;
             }}
           </style>
           <script type="text/javascript" src={linked.file.getName}></script>

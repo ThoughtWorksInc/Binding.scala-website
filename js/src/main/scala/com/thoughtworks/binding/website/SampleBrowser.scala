@@ -16,7 +16,7 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 object SampleBrowser {
 
-  private val Samples = Seq(IntSample, TableSample)
+  private val Samples = Seq(IntSample, TableSample, DateFlowchart)
 
   private def hashIndex = Try(location.hash.substring(1).toInt).getOrElse(0)
 
@@ -27,7 +27,7 @@ object SampleBrowser {
       i + 1
     }
   }
-  
+
   @dom
   private def render = {
     val currentSampleIndex = Var(hashIndex)
@@ -36,37 +36,37 @@ object SampleBrowser {
       currentSampleIndex := hashIndex
     }
     location.hash = s"#${currentSampleIndex.each.toString}"
-    
+
     val sample = Samples(currentSampleIndex.each)
-    
+
     <h1>
-			{
-			  sample.fileName
-			}
-    	<button onclick={ event: Event =>
+      {
+        sample.fileName
+      }
+      <button onclick={ event: Event =>
         currentSampleIndex := nextIndex(currentSampleIndex.get)
       }>
-      	Next Sample
-    	</button>
-		</h1>
+        Next Sample
+      </button>
+    </h1>
     <table>
-			<thead>
-				<tr>
-					<th>
-						Live DEMO
-					</th>
-					<th>
-						Source code
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>{ sample.render.each }</td>
-					<td><pre><code>{ sample.content }</code></pre></td>
-				</tr>
-			</tbody>
-		</table>
+      <thead>
+        <tr>
+          <th>
+            Live DEMO
+          </th>
+          <th>
+            Source code
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{ sample.render.each }</td>
+          <td><pre><code>{ sample.content }</code></pre></td>
+        </tr>
+      </tbody>
+    </table>
   }
 
   @JSExport
