@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cat ./secret/sonatype.sbt >> ./local.sbt &&
-
 git log --max-count=1 --format=format:%an | xargs -0 -n 1 git config --global -- user.name &&
 git log --max-count=1 --format=format:%ae | xargs -0 -n 1 git config --global -- user.email &&
 
@@ -15,4 +13,5 @@ eval "$(ssh-agent -s)" &&
 chmod 600 ./secret/id_rsa &&
 ssh-add ./secret/id_rsa &&
 
-sbt "release with-defaults"
+rm -rf $HOME/.sbt/ghpages
+sbt "++ $TRAVIS_SCALA_VERSION ghpagesPushSite"
