@@ -20,6 +20,14 @@ object SampleBrowser {
 
   private def hashIndex = Try(location.hash.substring(1).toInt).getOrElse(0)
 
+  private def nextIndex(i: Int) = {
+    if (i + 1 == Samples.length) {
+      0
+    } else {
+      i + 1
+    }
+  }
+  
   @dom
   private def render = {
     val currentSampleIndex = Var(hashIndex)
@@ -28,34 +36,37 @@ object SampleBrowser {
       currentSampleIndex := hashIndex
     }
     location.hash = s"#${currentSampleIndex.each.toString}"
-
-    <section>
-      <button onclick={ event: Event =>
-        currentSampleIndex := {
-          if (currentSampleIndex.get + 1 == Samples.length) {
-            0
-          } else {
-            currentSampleIndex.get + 1
-          }
-        }
+    
+    val sample = Samples(currentSampleIndex.each)
+    
+    <h1>
+			{
+			  sample.fileName
+			}
+    	<button onclick={ event: Event =>
+        currentSampleIndex := nextIndex(currentSampleIndex.get)
       }>
-        Next Sample
-      </button>
-      <hr/>
-      {
-        val sample = Samples(currentSampleIndex.each)
-        <section>
-          { sample.render.each }
-          <hr/>
-          <fieldset>
-            <legend>
-              { sample.fileName }
-            </legend>
-            <pre><code>{ sample.content }</code></pre>
-          </fieldset>
-        </section>
-      }
-    </section>
+      	Next Sample
+    	</button>
+		</h1>
+    <table>
+			<thead>
+				<tr>
+					<th>
+						Live DEMO
+					</th>
+					<th>
+						Source code
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{ sample.render.each }</td>
+					<td><pre><code>{ sample.content }</code></pre></td>
+				</tr>
+			</tbody>
+		</table>
   }
 
   @JSExport

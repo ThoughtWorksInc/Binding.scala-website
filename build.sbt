@@ -22,7 +22,30 @@ SiteKeys.siteMappings ++= {
       "<!DOCTYPE html>",
       xml.Xhtml.toXhtml(<html>
         <head>
-          <script type="text/javascript" src={jsFile.getName}></script>
+          <style>
+            * {{
+              box-sizing: border-box;
+            }}
+            body {{
+              padding: 20px;
+            }}
+            h1 {{
+              font-size: 1.1em;
+              padding-bottom: 10px;
+            }}
+            table {{
+              width: 100%;
+            }}
+            td {{
+              padding: 10px;
+            }}
+            table, th, tr, td {{
+              vertical-align: top;
+              border-collapse: collapse;
+              border: thin solid gray;
+            }}
+          </style>
+          <script type="text/javascript" src={linked.file.getName}></script>
         </head>
         <body>
           <script type="text/javascript">
