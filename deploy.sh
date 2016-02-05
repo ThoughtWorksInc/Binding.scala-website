@@ -14,4 +14,4 @@ chmod 600 ./secret/id_rsa &&
 ssh-add ./secret/id_rsa &&
 
 rm -rf $HOME/.sbt/ghpages
-sbt "++ $TRAVIS_SCALA_VERSION ghpagesPushSite"
+sbt "; ++$TRAVIS_SCALA_VERSION; set scalaJSStage in js := FullOptStage; ghpagesPushSite"

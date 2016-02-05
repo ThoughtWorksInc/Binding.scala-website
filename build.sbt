@@ -11,9 +11,10 @@ val js = project dependsOn `macro`
 scalaVersion in ThisBuild := "2.11.7"
 
 import com.typesafe.sbt.SbtSite.SiteKeys
+import org.scalajs.core.tools.io.FileVirtualJSFile
 
 SiteKeys.siteMappings ++= {
-  val jsFile = (fastOptJS in js in Compile).value.data
+  val linked = (scalaJSLinkedFile in js in Compile).value.asInstanceOf[FileVirtualJSFile]
   val indexHtml = crossTarget.value / "index.html"
   IO.writeLines(
     indexHtml,
@@ -29,5 +30,9 @@ SiteKeys.siteMappings ++= {
           </script>
         </body>
       </html>)))
-  Seq(jsFile -> jsFile.getName, indexHtml -> "index.html")
+  Seq(
+    indexHtml -> "index.html",
+    linked.file -> linked.file.getName,
+    linked.sourceMapFile -> linked.sourceMapFile.getName
+  )
 }
