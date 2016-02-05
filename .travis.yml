@@ -7,6 +7,9 @@ cache:
 
 language: scala
 
+script:
+  - 2.11.7
+
 jdk:
   - oraclejdk8
 
