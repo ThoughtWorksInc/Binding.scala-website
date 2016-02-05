@@ -16,12 +16,12 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 object SampleBrowser {
 
-  val Samples = Seq(IntSample, TableSample)
+  private val Samples = Seq(IntSample, TableSample)
 
   private def hashIndex = Try(location.hash.substring(1).toInt).getOrElse(0)
 
   @dom
-  def render = {
+  private def render = {
     val currentSampleIndex = Var(hashIndex)
 
     window.onhashchange = { event: HashChangeEvent =>
