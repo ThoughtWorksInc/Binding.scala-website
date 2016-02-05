@@ -37,7 +37,7 @@ object DateFlowchart extends Sample {
           {
             answer.each match {
               case None =>
-                <br/>
+                <p>（请选择分支）</p>
               case Some(true) =>
                 val answer = Var[Option[Boolean]](None)
                 <section>
@@ -55,7 +55,7 @@ object DateFlowchart extends Sample {
                   {
                     answer.each match {
                       case None =>
-                        <br/>
+                        <p>（请选择分支）</p>
                       case Some(true) =>
                         sex.each
                       case Some(false) =>
@@ -75,7 +75,7 @@ object DateFlowchart extends Sample {
                           {
                             answer.each match {
                               case None =>
-                                <br/>
+                                <p>（请选择分支）</p>
                               case Some(true) =>
                                 sex.each
                               case Some(false) =>
@@ -107,7 +107,7 @@ object DateFlowchart extends Sample {
                   {
                     answer.each match {
                       case None =>
-                        <br/>
+                        <p>（请选择分支）</p>
                       case Some("聚会") =>
                         val answer = Var[Option[Boolean]](None)
                         <section>
@@ -125,7 +125,7 @@ object DateFlowchart extends Sample {
                           {
                             answer.each match {
                               case None =>
-                                <br/>
+                                <p>（请选择分支）</p>
                               case Some(true) =>
                                 val answer = Var[Option[Boolean]](None)
                                 <section>
@@ -143,7 +143,7 @@ object DateFlowchart extends Sample {
                                   {
                                     answer.each match {
                                       case None =>
-                                        <br/>
+                                        <p>（请选择分支）</p>
                                       case Some(true) =>
                                         isDrunk(0).each
                                       case Some(false) =>
@@ -173,7 +173,7 @@ object DateFlowchart extends Sample {
                           {
                             answer.each match {
                               case None =>
-                                <br/>
+                                <p>（请选择分支）</p>
                               case Some(true) =>
                                 noSex.each
                               case Some(false) =>
@@ -193,7 +193,7 @@ object DateFlowchart extends Sample {
                                   {
                                     answer.each match {
                                       case None =>
-                                        <br/>
+                                        <p>（请选择分支）</p>
                                       case Some(true) =>
                                         soberEnough.each
                                       case Some(false) =>
@@ -225,7 +225,7 @@ object DateFlowchart extends Sample {
         if (checked.each) {
           isDrunk(numberOfCupsOfDrinks).each
         } else {
-          <br/>
+          <p>（请选择分支）</p>
         }
       }
     </section>
@@ -248,7 +248,7 @@ object DateFlowchart extends Sample {
       {
         answer.each match {
           case None =>
-            <br/>
+            <p>（请选择分支）</p>
           case Some(true) =>
             soberEnough.each
           case Some(false) =>
@@ -275,7 +275,7 @@ object DateFlowchart extends Sample {
       {
         answer.each match {
           case None =>
-            <br/>
+            <p>（请选择分支）</p>
           case Some(true) =>
             sex.each
           case Some(false) =>
