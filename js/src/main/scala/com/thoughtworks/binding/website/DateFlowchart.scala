@@ -20,6 +20,7 @@ object DateFlowchart extends Sample {
   @dom override def render = {
     <section>
       <h1>约会后是否会啪啪啪的流程图</h1>
+      <div>本 DEMO 问题描述，详见<a href="https://www.zhihu.com/question/29273443/answer/85078003">函数式语言开发GUI是不是自虐?</a></div>
       {
         val answer = Var[Option[Boolean]](None)
         <section>
