@@ -288,6 +288,6 @@ object DateFlowchart extends Sample {
 
   @dom private def noSex = <p>你今晚想滚床单是没戏了</p>
 
-  @dom private def sex = <p>你小子的幸福来了</p>
+  @dom private def sex = <p>你小子的性福来了</p>
 
 }
