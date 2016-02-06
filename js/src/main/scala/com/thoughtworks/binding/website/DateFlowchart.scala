@@ -261,15 +261,15 @@ object DateFlowchart extends Sample {
   @dom private def soberEnough = {
     val answer = Var[Option[Boolean]](None)
     <section>
-      <p>她醉得不省人事了吗？</p>
+      <p>她还没醉得不省人事了吧？</p>
       <ul>
         <li>
-          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？是" onclick={ event: Event => answer := Some(true) }/>
-          <label htmlFor="她醉得不省人事了吗？是">是</label>
+          <input type="radio" name="她还没醉得不省人事了吧？" id="她还没醉得不省人事了吧？是" onclick={ event: Event => answer := Some(true) }/>
+          <label htmlFor="她还没醉得不省人事了吧？是">是</label>
         </li>
         <li>
-          <input type="radio" name="她醉得不省人事了吗？" id="她醉得不省人事了吗？否" onclick={ event: Event => answer := Some(false) }/>
-          <label htmlFor="她醉得不省人事了吗？否">否</label>
+          <input type="radio" name="她还没醉得不省人事了吧？" id="她还没醉得不省人事了吧？否" onclick={ event: Event => answer := Some(false) }/>
+          <label htmlFor="她还没醉得不省人事了吧？否">否</label>
         </li>
       </ul>
       {
