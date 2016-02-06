@@ -39,16 +39,14 @@ object SampleBrowser {
 
     val sample = Samples(currentSampleIndex.each)
 
-    <h1>
-      {
-        sample.fileName
-      }
+    <h1>{ sample.fileName }</h1>
+    <div>
       <button onclick={ event: Event =>
         currentSampleIndex := nextIndex(currentSampleIndex.get)
       }>
         Next Sample
       </button>
-    </h1>
+    </div>
     <table>
       <thead>
         <tr>
