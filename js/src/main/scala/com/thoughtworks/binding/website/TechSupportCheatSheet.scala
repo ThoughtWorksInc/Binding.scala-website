@@ -21,7 +21,7 @@ object TechSupportCheatSheet extends Sample {
   @dom override def render = {
     <section>
       <h1>Tech Support Cheat Sheet</h1>
-      <p>See <a href="https://xkcd.com/627/">xkcd: Tech Support Cheat Sheet/</a> about how to use this flowchart.</p>
+      <p>See <a href="https://xkcd.com/627/">xkcd: Tech Support Cheat Sheet</a> about how to use this flowchart.</p>
       {
         val checked = Var(false)
         <section>
