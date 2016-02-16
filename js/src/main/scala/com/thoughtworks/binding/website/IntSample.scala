@@ -1,21 +1,21 @@
 package com.thoughtworks.binding.website
 
-import com.thoughtworks.binding.Binding.{Var, Vars}
+import com.thoughtworks.binding.Binding.{ Var, Vars }
 import com.thoughtworks.binding.dom
 import com.thoughtworks.binding.website.TableSample.Contact
 import org.scalajs.dom.raw.Event
 
 /**
-  * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
-  */
+ * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
+ */
 object IntSample extends Sample {
 
   @dom
   private def intEditor(int: Var[Int]) = {
     <div>
-      <button onclick={event: Event => int := int.get - 1}>-</button>
-      {int.each.toString}
-      <button onclick={event: Event => int := int.get + 1}>+</button>
+      <button onclick={ event: Event => int := int.get - 1 }>-</button>
+      { int.each.toString }
+      <button onclick={ event: Event => int := int.get + 1 }>+</button>
     </div>
   }
 
@@ -32,9 +32,11 @@ object IntSample extends Sample {
     val j = i.each + 1
 
     <div>
-      {intEditor(i).each}
+      { intEditor(i).each }
       <br/>
-      {j.each.toString}
+      { j.each.toString }
+      <br/>
+      { (i.each + 2).toString }
     </div>
   }
 }
