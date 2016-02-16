@@ -107,8 +107,6 @@ object DateFlowchart extends Sample {
                   </ul>
                   {
                     answer.each match {
-                      case None =>
-                        <p>（请选择分支）</p>
                       case Some("聚会") =>
                         val answer = Var[Option[Boolean]](None)
                         <section>
@@ -207,6 +205,8 @@ object DateFlowchart extends Sample {
                         </section>
                       case Some("学校舞会") =>
                         sex.each
+                      case _ =>
+                        <p>（请选择分支）</p>
                     }
                   }
                 </section>
