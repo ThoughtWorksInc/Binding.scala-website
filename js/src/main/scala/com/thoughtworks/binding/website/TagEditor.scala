@@ -31,8 +31,11 @@ object TagEditor extends Sample {
       <h2>Tag Preview</h2>
       { tagPreview(tags).each }
       <div>
-        See <a href="https://github.com/ThoughtWorksInc/Binding.scala-website/blob/master/js/src/test/scala/com/thoughtworks/binding/website/TagEditorTestSuite.scala">TagEditorTestSuite.scala</a>
-        for test cases for `tagPicker` method here.
+        See
+        <a href="https://github.com/ThoughtWorksInc/Binding.scala-website/blob/master/js/src/test/scala/com/thoughtworks/binding/website/TagEditorTestSuite.scala">
+          TagEditorTestSuite.scala
+        </a>
+        for test cases for the <code>tagPicker</code> method in this example.
       </div>
     </section>
   }
