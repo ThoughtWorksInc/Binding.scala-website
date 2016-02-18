@@ -12,13 +12,13 @@ object CurrentSource {
     c.Expr(Literal(Constant(new String(c.enclosingPosition.source.content))))
   }
 
-  implicit final def content: String = macro content_impl
+  final def content: String = macro content_impl
 
   final def fileName_impl(c: scala.reflect.macros.whitebox.Context) = {
     import c.universe._
     c.Expr(Literal(Constant(c.enclosingPosition.source.path)))
   }
 
-  implicit final def fileName: String = macro fileName_impl
+  final def fileName: String = macro fileName_impl
 
 }
