@@ -28,15 +28,23 @@ object IntSample extends Sample {
 
     val i = Var(0)
 
+    // Different ways of data-binding:
+
+    // 1. Create a nested binding expression 
     @dom
     val j = i.each + 1
+    
+    // 2. Create a plain value
+    val k = j.each + 1
 
     <div>
       { intEditor(i).each }
       <br/>
       { j.each.toString }
       <br/>
-      { (i.each + 2).toString }
+      { k.toString }
+      <br/>
+      { (i.each + 3).toString }
     </div>
   }
 }
