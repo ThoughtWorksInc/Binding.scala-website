@@ -9,43 +9,25 @@ import org.scalajs.dom.raw.Event
  * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
  */
 object IntSample extends Sample {
-
-  @dom
-  private def intEditor(int: Var[Int]) = {
-    <div>
-      <button onclick={ event: Event => int := int.get - 1 }>-</button>
-      { int.each.toString }
-      <button onclick={ event: Event => int := int.get + 1 }>+</button>
-    </div>
-  }
-
   override def fileName = CurrentSource.fileName
-
   override def content = CurrentSource.content
 
   @dom
-  override def render = {
-
-    val i = Var(0)
-
-    // Different ways of data-binding:
-
-    // 1. Create a nested binding expression 
-    @dom
-    val j = i.each + 1
-
+  def spinner(i: Var[Int]) = {
     <div>
-      { intEditor(i).each }
-      <br/>
-      { j.each.toString }
-      <br/>
-      {
-        // 2. Create a plain value
-        val k = j.each + 1
-        k.toString
-      }
-      <br/>
-      { (i.each + 3).toString }
+      <button onclick={ event: Event => i := i.get - 1 }>-</button>
+      { i.each.toString }
+      <button onclick={ event: Event => i := i.get + 1 }>+</button>
     </div>
   }
+  
+  @dom
+  def render = {
+    val i = Var(0)
+    <div>
+      { spinner(i).each }
+      The current value of the spinner is { i.each.toString }
+    </div>
+  }
+  
 }
