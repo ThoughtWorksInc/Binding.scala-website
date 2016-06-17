@@ -8,7 +8,7 @@ val `macro` = project
 
 val js = project dependsOn `macro`
 
-scalaVersion in ThisBuild := "2.11.7"
+scalaVersion in ThisBuild := "2.11.8"
 
 import com.typesafe.sbt.SbtSite.SiteKeys
 import org.scalajs.core.tools.io.FileVirtualJSFile
