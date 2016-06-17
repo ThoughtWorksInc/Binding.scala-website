@@ -1,10 +1,14 @@
 package com.thoughtworks.binding.website
 
-import com.thoughtworks.binding.dom
-import org.scalajs.dom.raw.Event
 import com.thoughtworks.binding.Binding.Vars
+import com.thoughtworks.binding.dom
 
-object CommandList extends Sample {
+import scala.scalajs.js
+
+import org.scalajs.dom.window
+import org.scalajs.dom.raw.Event
+
+object Repl extends Sample {
 
   override def fileName = CurrentSource.fileName
 
@@ -16,6 +20,8 @@ object CommandList extends Sample {
     val input = <input type="text"/>
     val submitHandler = { event: Event =>
       logs.get += input.value
+      logs.get += js.eval(input.value).toString
+      input.value = ""
       event.preventDefault()
     }
     <form onsubmit={ submitHandler }>
