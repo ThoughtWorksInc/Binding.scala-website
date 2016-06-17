@@ -2,7 +2,6 @@ package com.thoughtworks.binding.website
 
 import com.thoughtworks.binding.Binding.{ Var, Vars }
 import com.thoughtworks.binding.dom
-import org.scalajs.dom.location
 import org.scalajs.dom.window
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.{ Event, HashChangeEvent }
@@ -18,7 +17,7 @@ object SampleBrowser {
 
   private val Samples = Seq(IntSample, TableSample, DateFlowchart, TechSupportCheatSheet, TagEditor, InputSample)
 
-  private def hashIndex = Try(location.hash.substring(1).toInt).getOrElse(0)
+  private def hashIndex = Try(window.location.hash.substring(1).toInt).getOrElse(0)
 
   private def nextIndex(i: Int) = {
     if (i + 1 == Samples.length) {
@@ -35,7 +34,7 @@ object SampleBrowser {
     window.onhashchange = { event: HashChangeEvent =>
       currentSampleIndex := hashIndex
     }
-    location.hash = s"#${currentSampleIndex.each.toString}"
+    window.location.hash = s"#${currentSampleIndex.each.toString}"
 
     val sample = Samples(currentSampleIndex.each)
 
