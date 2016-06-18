@@ -8,6 +8,8 @@ val `macro` = project
 
 val js = project dependsOn `macro`
 
+crossScalaVersions in ThisBuild := Seq("2.11.8")
+
 scalaVersion in ThisBuild := "2.11.8"
 
 import com.typesafe.sbt.SbtSite.SiteKeys
