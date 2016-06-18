@@ -7,8 +7,8 @@ cache:
 
 language: scala
 
-scala:
-  - 2.11.7
+script:
+  - sbt test
 
 jdk:
   - oraclejdk8
