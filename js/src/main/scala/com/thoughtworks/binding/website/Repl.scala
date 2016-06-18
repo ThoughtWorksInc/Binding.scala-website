@@ -16,7 +16,7 @@ object Repl extends Sample {
 
   @dom
   override def render = {
-    val logs = Vars.empty[String]
+    val logs = Vars("Input code:")
     val input = <input type="text"/>
     val submitHandler = { event: Event =>
       logs.get += input.value
