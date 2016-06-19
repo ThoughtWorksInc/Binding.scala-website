@@ -62,7 +62,7 @@ object TagEditor extends Sample {
     }
     <section>
       <div>{
-        for (tag <- tags) yield <q className="tag">
+        for (tag <- tags) yield <q>
           { tag }
           <button onclick={ event: Event => tags.get -= tag }>x</button>
         </q>
