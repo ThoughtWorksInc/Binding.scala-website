@@ -52,29 +52,22 @@ object TagEditor extends Sample {
 
   }
 
-  @dom
-  def tagPicker(tags: Vars[String]) = {
-    val input: Input = <input type="text"/>;
+  @dom def tagPicker(tags: Vars[String]) = {
+    val input: Input = <input type="text"/>
+    val addHandler = { event: Event =>
+      if (input.value != "" && !tags.get.contains(input.value)) {
+        tags.get += input.value
+        input.value = ""
+      }
+    }
     <section>
-      <div>
-        {
-          for (tag <- tags) yield {
-            <q className="tag">
-              { tag }
-              <button onclick={ event: Event =>
-                tags.get -= tag
-              }>x</button>
-            </q>
-          }
-        }
-      </div>
-      { input }
-      <button onclick={ event: Event =>
-        if (input.value != "" && !tags.get.contains(input.value)) {
-          tags.get += input.value
-          input.value = ""
-        }
-      }>Add</button>
+      <div>{
+        for (tag <- tags) yield <q className="tag">
+          { tag }
+          <button onclick={ event: Event => tags.get -= tag }>x</button>
+        </q>
+      }</div>
+      <div>{ input } <button onclick={ addHandler }>Add</button></div>
     </section>
   }
 
