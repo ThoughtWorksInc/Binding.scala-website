@@ -21,35 +21,13 @@ object TagEditor extends Sample {
 
   override def content = CurrentSource.content
 
-  @dom
-  override def render = {
-    val tags = Vars("tag1", "tag2-from-server-side")
-    <section>
-      <h2>Tag Picker</h2>
+  @dom def render() = {
+    val tags = Vars("initial-tag-1", "initial-tag-2")
+    <div>
       { tagPicker(tags).each }
-      <hr/>
-      <h2>Tag Preview</h2>
-      { tagPreview(tags).each }
-      <div>
-        See
-        <a href="https://github.com/ThoughtWorksInc/Binding.scala-website/blob/master/js/src/test/scala/com/thoughtworks/binding/website/TagEditorTestSuite.scala">
-          TagEditorTestSuite.scala
-        </a>
-        for test cases for the <code>tagPicker</code> method in this example.
-      </div>
-    </section>
-  }
-
-  @dom
-  def tagPreview(tags: BindingSeq[String]) = {
-    <ol>
-      {
-        for {
-          tag <- tags
-        } yield <li>{ tag }</li>
-      }
-    </ol>
-
+      <h3>全部标签：</h3>
+      <ol>{ for (tag <- tags) yield <li>{ tag }</li> }</ol>
+    </div>
   }
 
   @dom def tagPicker(tags: Vars[String]) = {
