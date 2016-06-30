@@ -10,11 +10,7 @@ import org.scalajs.dom.html.Input
  * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
  */
 object InputSample extends Sample {
-  
-  
 
-  
-  
   @dom
   override def render = {
     val value = Var("")

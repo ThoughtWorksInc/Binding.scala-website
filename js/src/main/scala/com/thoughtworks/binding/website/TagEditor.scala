@@ -17,10 +17,6 @@ import org.scalajs.dom.html.Input
 
 object TagEditor extends Sample {
 
-  
-
-  
-
   @dom def render() = {
     val tags = Vars("initial-tag-1", "initial-tag-2")
     <div>

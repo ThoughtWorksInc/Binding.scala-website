@@ -13,10 +13,6 @@ import org.scalajs.dom.html.Input
  */
 object DateFlowchart extends Sample {
 
-  
-
-  
-
   @dom override def render = {
     <section>
       <h1>约会后是否会啪啪啪的流程图</h1>

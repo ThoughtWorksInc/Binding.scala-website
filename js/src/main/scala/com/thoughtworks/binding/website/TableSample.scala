@@ -9,10 +9,6 @@ import org.scalajs.dom.raw.Event
   */
 object TableSample extends Sample {
 
-  
-
-  
-
   case class Contact(name: Var[String], email: Var[String])
 
   @dom

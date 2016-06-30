@@ -14,10 +14,6 @@ import org.scalajs.dom.html.Input
  */
 object TechSupportCheatSheet extends Sample {
 
-  
-
-  
-
   @dom override def render = {
     <section>
       <h1>Tech Support Cheat Sheet</h1>

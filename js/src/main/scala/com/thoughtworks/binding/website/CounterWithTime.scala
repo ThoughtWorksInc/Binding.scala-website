@@ -8,10 +8,6 @@ import org.scalajs.dom.raw.Event
 
 object CounterWithTime extends Sample {
 
-  
-
-  
-
   val count = Var(0)
 
   @dom def status: Binding[String] = {

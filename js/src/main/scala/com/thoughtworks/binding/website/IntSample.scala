@@ -9,8 +9,6 @@ import org.scalajs.dom.raw.Event
  * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
  */
 object IntSample extends Sample {
-  
-  
 
   @dom
   def spinner(i: Var[Int]) = {

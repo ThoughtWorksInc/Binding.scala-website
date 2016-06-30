@@ -5,10 +5,6 @@ import com.thoughtworks.binding.Binding.Vars
 
 object Hello extends Sample {
 
-  
-
-  
-
   @dom
   override def render = {
     val logs = Vars("Hello", "Binding.scala")

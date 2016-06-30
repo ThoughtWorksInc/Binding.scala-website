@@ -10,10 +10,6 @@ import org.scalajs.dom.raw.Event
 
 object Repl extends Sample {
 
-  
-
-  
-
   @dom
   override def render = {
     val logs = Vars("Input code:")
