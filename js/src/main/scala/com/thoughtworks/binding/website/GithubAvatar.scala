@@ -28,8 +28,8 @@ object GithubAvatar extends Sample {
           githubResult.each match {
             case None =>
               <div>Loading the avatar for { name }</div>
-            case Some(Success(xmlHttpRequest)) =>
-              val json = JSON.parse(xmlHttpRequest.responseText)
+            case Some(Success(response)) =>
+              val json = JSON.parse(response.responseText)
               <img src={ json.avatar_url.toString }/>
             case Some(Failure(exception)) =>
               <div>{ exception.toString }</div>
