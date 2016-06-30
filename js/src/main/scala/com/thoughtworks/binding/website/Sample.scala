@@ -7,12 +7,8 @@ import org.scalajs.dom.raw.Node
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
   */
-trait Sample {
+abstract class Sample(implicit val currentSource: CurrentSource) {
 
   def render:Binding[Node]
-
-  def fileName:String
-
-  def content:String
 
 }

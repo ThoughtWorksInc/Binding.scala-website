@@ -9,9 +9,9 @@ import org.scalajs.dom.raw.Event
   */
 object TableSample extends Sample {
 
-  override def fileName = CurrentSource.fileName
+  
 
-  override def content = CurrentSource.content
+  
 
   case class Contact(name: Var[String], email: Var[String])
 

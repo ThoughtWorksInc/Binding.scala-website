@@ -8,9 +8,9 @@ import org.scalajs.dom.raw.Event
 
 object CounterWithTime extends Sample {
 
-  override def fileName = CurrentSource.fileName
+  
 
-  override def content = CurrentSource.content
+  
 
   val count = Var(0)
 

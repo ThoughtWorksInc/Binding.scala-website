@@ -5,9 +5,9 @@ import com.thoughtworks.binding.Binding.Vars
 
 object Hello extends Sample {
 
-  override def fileName = CurrentSource.fileName
+  
 
-  override def content = CurrentSource.content
+  
 
   @dom
   override def render = {

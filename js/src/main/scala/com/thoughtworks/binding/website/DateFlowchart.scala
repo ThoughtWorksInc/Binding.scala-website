@@ -13,9 +13,9 @@ import org.scalajs.dom.html.Input
  */
 object DateFlowchart extends Sample {
 
-  override def fileName = CurrentSource.fileName
+  
 
-  override def content = CurrentSource.content
+  
 
   @dom override def render = {
     <section>

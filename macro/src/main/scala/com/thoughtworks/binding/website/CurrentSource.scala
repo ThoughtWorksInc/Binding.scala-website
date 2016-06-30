@@ -7,18 +7,19 @@ import scala.language.experimental.macros
   */
 object CurrentSource {
 
-  final def content_impl(c: scala.reflect.macros.whitebox.Context) = {
-    import c.universe._
-    c.Expr(Literal(Constant(new String(c.enclosingPosition.source.content))))
+  private[CurrentSource] final class MacroBundle(val c: scala.reflect.macros.whitebox.Context) {
+    final def implicitCurrentSource = {
+      import c.universe._
+      q"new _root_.com.thoughtworks.binding.website.CurrentSource(${
+        new String(c.enclosingPosition.source.content)
+      }, ${
+        c.enclosingPosition.source.path
+      })"
+    }
   }
-
-  final def content: String = macro content_impl
-
-  final def fileName_impl(c: scala.reflect.macros.whitebox.Context) = {
-    import c.universe._
-    c.Expr(Literal(Constant(c.enclosingPosition.source.path)))
-  }
-
-  final def fileName: String = macro fileName_impl
+  
+  implicit def implicitCurrentSource: CurrentSource = macro MacroBundle.implicitCurrentSource
 
 }
+
+final case class CurrentSource(content: String, fileName: String)

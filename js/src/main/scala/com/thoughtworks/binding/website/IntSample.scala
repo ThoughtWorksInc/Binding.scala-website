@@ -9,8 +9,8 @@ import org.scalajs.dom.raw.Event
  * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
  */
 object IntSample extends Sample {
-  override def fileName = CurrentSource.fileName
-  override def content = CurrentSource.content
+  
+  
 
   @dom
   def spinner(i: Var[Int]) = {

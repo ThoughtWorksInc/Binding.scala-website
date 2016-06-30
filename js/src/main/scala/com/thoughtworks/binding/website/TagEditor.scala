@@ -17,9 +17,9 @@ import org.scalajs.dom.html.Input
 
 object TagEditor extends Sample {
 
-  override def fileName = CurrentSource.fileName
+  
 
-  override def content = CurrentSource.content
+  
 
   @dom def render() = {
     val tags = Vars("initial-tag-1", "initial-tag-2")
