@@ -17,7 +17,7 @@ object GithubAvatar extends Sample {
     val githubUserName = Var("")
     def inputHandler = { event: Event => githubUserName := event.currentTarget.asInstanceOf[Input].value }
     <div>
-      <input className="my-input" type="text" oninput={ inputHandler }/>
+      <input type="text" oninput={ inputHandler }/>
       <hr/>
       {
         val name = githubUserName.each
