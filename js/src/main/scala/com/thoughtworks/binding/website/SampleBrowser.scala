@@ -15,7 +15,9 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 object SampleBrowser {
 
-  private val Samples = Seq(IntSample, TableSample, DateFlowchart, TechSupportCheatSheet, TagEditor, InputSample, Hello, Repl, CounterWithTime, GithubAvatar)
+  private val Samples = Seq(
+      IntSample, TableSample, DateFlowchart, TechSupportCheatSheet, TagEditor, 
+      InputSample, Hello, Repl, CounterWithTime, GithubAvatar, HtmlLiteral)
 
   private def hashIndex = Try(window.location.hash.substring(1).toInt).getOrElse(0)
 
