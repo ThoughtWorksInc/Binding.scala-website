@@ -2,7 +2,7 @@ enablePlugins(ScalaJsMap)
 
 enablePlugins(ScalaJSPlugin)
 
-libraryDependencies += "com.thoughtworks.binding" %%% "dom" % "5.4.0"
+libraryDependencies += "com.thoughtworks.binding" %%% "dom" % "7.0.0"
 
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 
