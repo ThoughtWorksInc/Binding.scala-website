@@ -14,7 +14,7 @@ object IntSample extends Sample {
   def spinner(i: Var[Int]) = {
     <div>
       <button onclick={ event: Event => i := i.get - 1 }>-</button>
-      { i.each.toString }
+      { i.bind.toString }
       <button onclick={ event: Event => i := i.get + 1 }>+</button>
     </div>
   }
@@ -23,8 +23,8 @@ object IntSample extends Sample {
   def render = {
     val i = Var(0)
     <div>
-      { spinner(i).each }
-      The current value of the spinner is { i.each.toString }
+      { spinner(i).bind }
+      The current value of the spinner is { i.bind.toString }
     </div>
   }
   

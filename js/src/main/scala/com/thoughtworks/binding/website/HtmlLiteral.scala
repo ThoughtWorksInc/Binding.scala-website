@@ -53,13 +53,13 @@ object HtmlLiteral extends Sample {
 
   @dom def render = {
     <div>
-      现在时间：{ now.each.toString }
-      { introductionDiv.each }
-      { inlineStyle.each }
-      { typedButton.each }
-      { comment.each }
-      { randomParagraph.each }
-      { myCustomDiv.each }
+      现在时间：{ now.bind.toString }
+      { introductionDiv.bind }
+      { inlineStyle.bind }
+      { typedButton.bind }
+      { comment.bind }
+      { randomParagraph.bind }
+      { myCustomDiv.bind }
     </div>
   }
 }

@@ -20,7 +20,7 @@ object TagEditor extends Sample {
   @dom def render() = {
     val tags = Vars("initial-tag-1", "initial-tag-2")
     <div>
-      { tagPicker(tags).each }
+      { tagPicker(tags).bind }
       <h3>全部标签：</h3>
       <ol>{ for (tag <- tags) yield <li>{ tag }</li> }</ol>
     </div>

@@ -22,11 +22,11 @@ object TechSupportCheatSheet extends Sample {
         val checked = Var(false)
         <section>
           {
-            check(checked, "START").each
+            check(checked, "START").bind
           }
           {
-            if (checked.each) {
-              findButton.each
+            if (checked.bind) {
+              findButton.bind
             } else {
               <p>(Check the box to continue)</p>
             }
@@ -41,37 +41,37 @@ object TechSupportCheatSheet extends Sample {
     val answer = Var[Option[String]](None)
     <section>
       {
-        choice(answer, "FIND A MENU ITEM OR BUTTON WHICH LOOKS RELATED TO WHAT YOU WANT TO DO.", "OK", "I CAN'T FIND ONE").each
+        choice(answer, "FIND A MENU ITEM OR BUTTON WHICH LOOKS RELATED TO WHAT YOU WANT TO DO.", "OK", "I CAN'T FIND ONE").bind
       }
       {
-        answer.each match {
+        answer.bind match {
           case Some("OK") =>
-            clickIt.each
+            clickIt.bind
           case Some("I CAN'T FIND ONE") =>
             val answer = Var[Option[String]](None)
             <section>
               {
-                choice(answer, "PICK ONE AT RANDOM", "I'VE TRIED THEM ALL.", "NO").each
+                choice(answer, "PICK ONE AT RANDOM", "I'VE TRIED THEM ALL.", "NO").bind
               }
               {
-                answer.each match {
+                answer.bind match {
                   case Some("I'VE TRIED THEM ALL.") =>
 
                     val checked = Var(false)
                     <section>
                       {
-                        check(checked, "GOOGLE THE NAME OF THE PROGRAM PLUS A FEW WORDS RELATED TO WHAT YOU WANT TO DO. FOLLOW ANY INSTRUCTIONS.").each
+                        check(checked, "GOOGLE THE NAME OF THE PROGRAM PLUS A FEW WORDS RELATED TO WHAT YOU WANT TO DO. FOLLOW ANY INSTRUCTIONS.").bind
                       }
                       {
-                        if (checked.each) {
-                          didItWork.each
+                        if (checked.bind) {
+                          didItWork.bind
                         } else {
                           <p>(Check the box to continue)</p>
                         }
                       }
                     </section>
                   case Some("NO") =>
-                    clickIt.each
+                    clickIt.bind
                   case _ =>
                     <p>(Choose a branch)</p>
                 }
@@ -88,11 +88,11 @@ object TechSupportCheatSheet extends Sample {
     val checked = Var(false)
     <section>
       {
-        check(checked, "CLICK IT.").each
+        check(checked, "CLICK IT.").bind
       }
       {
-        if (checked.each) {
-          didItWork.each
+        if (checked.bind) {
+          didItWork.bind
         } else {
           <p>(Check the box to continue)</p>
         }
@@ -104,24 +104,24 @@ object TechSupportCheatSheet extends Sample {
     val answer = Var[Option[String]](None)
     <section>
       {
-        choice(answer, "DID IT WORK?", "YES", "NO").each
+        choice(answer, "DID IT WORK?", "YES", "NO").bind
       }
       {
-        answer.each match {
+        answer.bind match {
           case Some("YES") =>
             <p>YOU'RE DONE!</p>
           case Some("NO") =>
             val answer = Var[Option[String]](None)
             <section>
               {
-                choice(answer, "HAVE YOU BEEN TRYING THIS FOR OVER HALF AN HOUR?", "YES", "NO").each
+                choice(answer, "HAVE YOU BEEN TRYING THIS FOR OVER HALF AN HOUR?", "YES", "NO").bind
               }
               {
-                answer.each match {
+                answer.bind match {
                   case Some("YES") =>
                     <p>ASK SOMEONE FOR HELP OR GIVE UP.</p>
                   case Some("NO") =>
-                    findButton.each
+                    findButton.bind
                   case _ =>
                     <p>(Choose a branch)</p>
                 }

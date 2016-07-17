@@ -32,7 +32,7 @@ object DateFlowchart extends Sample {
             </li>
           </ul>
           {
-            answer.each match {
+            answer.bind match {
               case None =>
                 <p>（请选择分支）</p>
               case Some(true) =>
@@ -50,11 +50,11 @@ object DateFlowchart extends Sample {
                     </li>
                   </ul>
                   {
-                    answer.each match {
+                    answer.bind match {
                       case None =>
                         <p>（请选择分支）</p>
                       case Some(true) =>
-                        sex.each
+                        sex.bind
                       case Some(false) =>
                         val answer = Var[Option[Boolean]](None)
                         <section>
@@ -70,13 +70,13 @@ object DateFlowchart extends Sample {
                             </li>
                           </ul>
                           {
-                            answer.each match {
+                            answer.bind match {
                               case None =>
                                 <p>（请选择分支）</p>
                               case Some(true) =>
-                                sex.each
+                                sex.bind
                               case Some(false) =>
-                                buyDrinks(0).each
+                                buyDrinks(0).bind
                             }
                           }
                         </section>
@@ -102,7 +102,7 @@ object DateFlowchart extends Sample {
                     </li>
                   </ul>
                   {
-                    answer.each match {
+                    answer.bind match {
                       case Some("聚会") =>
                         val answer = Var[Option[Boolean]](None)
                         <section>
@@ -118,7 +118,7 @@ object DateFlowchart extends Sample {
                             </li>
                           </ul>
                           {
-                            answer.each match {
+                            answer.bind match {
                               case None =>
                                 <p>（请选择分支）</p>
                               case Some(true) =>
@@ -136,18 +136,18 @@ object DateFlowchart extends Sample {
                                     </li>
                                   </ul>
                                   {
-                                    answer.each match {
+                                    answer.bind match {
                                       case None =>
                                         <p>（请选择分支）</p>
                                       case Some(true) =>
-                                        isDrunk(0).each
+                                        isDrunk(0).bind
                                       case Some(false) =>
-                                        noSex.each
+                                        noSex.bind
                                     }
                                   }
                                 </section>
                               case Some(false) =>
-                                buyDrinks(0).each
+                                buyDrinks(0).bind
                             }
                           }
                         </section>
@@ -166,11 +166,11 @@ object DateFlowchart extends Sample {
                             </li>
                           </ul>
                           {
-                            answer.each match {
+                            answer.bind match {
                               case None =>
                                 <p>（请选择分支）</p>
                               case Some(true) =>
-                                noSex.each
+                                noSex.bind
                               case Some(false) =>
                                 val answer = Var[Option[Boolean]](None)
                                 <section>
@@ -186,13 +186,13 @@ object DateFlowchart extends Sample {
                                     </li>
                                   </ul>
                                   {
-                                    answer.each match {
+                                    answer.bind match {
                                       case None =>
                                         <p>（请选择分支）</p>
                                       case Some(true) =>
-                                        soberEnough.each
+                                        soberEnough.bind
                                       case Some(false) =>
-                                        noSex.each
+                                        noSex.bind
                                     }
                                   }
                                 </section>
@@ -200,7 +200,7 @@ object DateFlowchart extends Sample {
                           }
                         </section>
                       case Some("学校舞会") =>
-                        sex.each
+                        sex.bind
                       case _ =>
                         <p>（请选择分支）</p>
                     }
@@ -219,8 +219,8 @@ object DateFlowchart extends Sample {
       <input type="checkbox" id={ s"给她买点酒喝啦$numberOfCupsOfDrinks" } name="给她买点酒喝啦" onclick={ event: Event => checked := event.currentTarget.asInstanceOf[Input].checked }/>
       <label htmlFor={ s"给她买点酒喝啦$numberOfCupsOfDrinks" }>给她买点酒喝啦</label>
       {
-        if (checked.each) {
-          isDrunk(numberOfCupsOfDrinks).each
+        if (checked.bind) {
+          isDrunk(numberOfCupsOfDrinks).bind
         } else {
           <p>（请选择分支）</p>
         }
@@ -243,13 +243,13 @@ object DateFlowchart extends Sample {
         </li>
       </ul>
       {
-        answer.each match {
+        answer.bind match {
           case None =>
             <p>（请选择分支）</p>
           case Some(true) =>
-            soberEnough.each
+            soberEnough.bind
           case Some(false) =>
-            buyDrinks(numberOfCupsOfDrinks + 1).each
+            buyDrinks(numberOfCupsOfDrinks + 1).bind
         }
       }
     </section>
@@ -270,13 +270,13 @@ object DateFlowchart extends Sample {
         </li>
       </ul>
       {
-        answer.each match {
+        answer.bind match {
           case None =>
             <p>（请选择分支）</p>
           case Some(true) =>
-            sex.each
+            sex.bind
           case Some(false) =>
-            noSex.each
+            noSex.bind
         }
       }
     </section>

@@ -12,12 +12,12 @@ object CounterWithTime extends Sample {
 
   @dom def status: Binding[String] = {
     val startTime = new Date
-    "本页面初始化的时间是" + startTime.toString + "。按钮被按过" + count.each.toString + "次。按钮最后一次按下的时间是" + (new Date).toString
+    "本页面初始化的时间是" + startTime.toString + "。按钮被按过" + count.bind.toString + "次。按钮最后一次按下的时间是" + (new Date).toString
   }
 
   @dom def render = {
     <div>
-      { status.each }
+      { status.bind }
       <button onclick={ event: Event => count := count.get + 1 }>更新状态</button>
     </div>
   }

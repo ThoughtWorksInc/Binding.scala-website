@@ -16,7 +16,7 @@ object InputSample extends Sample {
     val value = Var("")
     <div>
       <input onchange={ event: Event => value := dom.currentTarget[Input].value }/>
-      Your input value is { value.each }
+      Your input value is { value.bind }
     </div>
   }
 

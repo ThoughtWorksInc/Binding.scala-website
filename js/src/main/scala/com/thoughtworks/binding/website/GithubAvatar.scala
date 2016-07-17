@@ -20,12 +20,12 @@ object GithubAvatar extends Sample {
       <input type="text" oninput={ inputHandler }/>
       <hr/>
       {
-        val name = githubUserName.each
+        val name = githubUserName.bind
         if (name == "") {                                                                     // 如果用户名为空：
           <div>Please input your Github user name</div>                                       // 显示提示文字；
         } else {                                                                              // 如果用户名非空：
           val githubResult = FutureBinding(Ajax.get(s"https://api.github.com/users/${name}")) // 发起 Github API 请求，
-          githubResult.each match {                                                           // 并检查 API 结果。
+          githubResult.bind match {                                                           // 并根据 API 结果显示不同的内容：
             case None =>                                                                      // 如果尚未加载完毕：
               <div>Loading the avatar for { name }</div>                                      // 显示提示信息；
             case Some(Success(response)) =>                                                   // 如果成功加载：

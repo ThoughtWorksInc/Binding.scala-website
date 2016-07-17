@@ -36,9 +36,9 @@ object SampleBrowser {
     window.onhashchange = { event: HashChangeEvent =>
       currentSampleIndex := hashIndex
     }
-    window.location.hash = s"#${currentSampleIndex.each.toString}"
+    window.location.hash = s"#${currentSampleIndex.bind.toString}"
 
-    val sample = Samples(currentSampleIndex.each)
+    val sample = Samples(currentSampleIndex.bind)
 
     <h1>{ sample.currentSource.fileName }</h1>
     <div>
@@ -61,7 +61,7 @@ object SampleBrowser {
       </thead>
       <tbody>
         <tr>
-          <td>{ sample.render.each }</td>
+          <td>{ sample.render.bind }</td>
           <td><pre><code>{ sample.currentSource.content }</code></pre></td>
         </tr>
       </tbody>

@@ -36,10 +36,10 @@ object TableSample extends Sample {
           {for (contact <- data) yield {
           <tr>
             <td>
-              {contact.name.each}
+              {contact.name.bind}
             </td>
             <td>
-              {contact.email.each}
+              {contact.email.bind}
             </td>
             <td>
               <button
