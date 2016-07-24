@@ -15,7 +15,7 @@ object InputSample extends Sample {
   override def render = {
     val value = Var("")
     <div>
-      <input onchange={ event: Event => value := dom.currentTarget[Input].value }/>
+      <input oninput={ event: Event => value := dom.currentTarget[Input].value }/>
       Your input value is { value.bind }
     </div>
   }
