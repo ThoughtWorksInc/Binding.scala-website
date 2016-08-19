@@ -20,10 +20,13 @@ object HtmlLiteral extends Sample {
   }
 
   @dom def typedButton: Binding[HTMLButtonElement] = {
-    val myButton: HTMLButtonElement = <button>按钮</button>
-    println(myButton.innerHTML) // 在控制台中打印按钮内部的 HTML
-    myButton
+    <button>按钮</button>
   }
+  
+  @dom val autoPrintln: Binding[Unit] = {
+    println(typedButton.bind.innerHTML) // 在控制台中打印按钮内部的 HTML
+  }
+  autoPrintln.watch()
 
   @dom def comment = {
     <!-- 你看不见我 -->
