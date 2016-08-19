@@ -1,7 +1,8 @@
 package com.thoughtworks.binding.website
 
 import com.thoughtworks.binding.dom
-import com.thoughtworks.binding.Binding.{ FutureBinding, Var }
+import com.thoughtworks.binding.FutureBinding
+import com.thoughtworks.binding.Binding.Var
 
 import org.scalajs.dom.raw.Event
 import org.scalajs.dom.html.Input
