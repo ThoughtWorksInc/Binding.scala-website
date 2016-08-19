@@ -2,7 +2,7 @@ enablePlugins(ScalaJsMap)
 
 enablePlugins(ScalaJSPlugin)
 
-libraryDependencies += "com.thoughtworks.binding" %%% "bindingfuture" % "8.0.0"
+libraryDependencies += "com.thoughtworks.binding" %%% "futurebinding" % "8.0.0"
 
 libraryDependencies += "com.thoughtworks.binding" %%% "dom" % "8.0.0"
 
