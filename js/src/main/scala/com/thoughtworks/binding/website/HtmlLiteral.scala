@@ -22,11 +22,6 @@ object HtmlLiteral extends Sample {
   @dom def typedButton: Binding[HTMLButtonElement] = {
     <button>按钮</button>
   }
-  
-  @dom val autoPrintln: Binding[Unit] = {
-    println(typedButton.bind.innerHTML) // 在控制台中打印按钮内部的 HTML
-  }
-  autoPrintln.watch()
 
   @dom def comment = {
     <!-- 你看不见我 -->
@@ -53,7 +48,7 @@ object HtmlLiteral extends Sample {
 
   val now = Var(new Date)
   setInterval(1000) { now := new Date }
-
+  
   @dom def render = {
     <div>
       现在时间：{ now.bind.toString }
@@ -65,4 +60,10 @@ object HtmlLiteral extends Sample {
       { myCustomDiv.bind }
     </div>
   }
+
+  @dom val autoPrintln: Binding[Unit] = {
+    println(render.bind.innerHTML) // 在控制台中打印页面 HTML
+  }
+  autoPrintln.watch()
+  
 }
