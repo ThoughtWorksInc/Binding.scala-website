@@ -15,10 +15,10 @@ object Repl extends Sample {
     val logs = Vars("Input code:")
     val input = <input type="text"/>
     val submitHandler = { event: Event =>
+      event.preventDefault()
       logs.get += input.value
       logs.get += js.eval(input.value).toString
       input.value = ""
-      event.preventDefault()
     }
     <form onsubmit={ submitHandler }>
       { for { log <- logs } yield <div>{ log }</div> }
