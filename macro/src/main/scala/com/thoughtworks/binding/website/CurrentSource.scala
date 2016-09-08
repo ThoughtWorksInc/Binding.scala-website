@@ -11,7 +11,7 @@ object CurrentSource {
     final def implicitCurrentSource = {
       import c.universe._
       q"new _root_.com.thoughtworks.binding.website.CurrentSource(${
-        new _root_.scala.String(c.enclosingPosition.source.content)
+        new _root_.scala.Predef.String(c.enclosingPosition.source.content)
       }, ${
         c.enclosingPosition.source.path
       })"
